@@ -1,32 +1,34 @@
 package com.example.mateuarticle1.ui.crud;
 
+import io.mateu.core.domain.uidefinition.core.interfaces.ConsumesContextData;
 import io.mateu.core.domain.uidefinition.core.interfaces.Crud;
+import io.mateu.core.domain.uidefinition.shared.annotations.Action;
 import io.mateu.core.domain.uidefinition.shared.annotations.MateuUI;
-import io.mateu.dtos.SortCriteria;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.mateu.core.domain.uidefinition.shared.interfaces.JourneyStarter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
+import java.util.Map;
 
 @MateuUI("/crud")
 @Component@Scope("prototype")
+@Slf4j
 public class SimpleCrud implements Crud<SearchForm, Row> {
 
-    @Autowired
-    SimpleCrudService service;
+    final SimpleCrudService service;
 
-    @Override
-    public Flux<Row> fetchRows(SearchForm filters, List<SortCriteria> sortOrders,
-                               int offset, int limit) throws Throwable {
-        return service.fetchRows(filters, sortOrders, offset, limit);
+    public SimpleCrud(SimpleCrudService service) {
+        this.service = service;
     }
 
     @Override
-    public Mono<Long> fetchCount(SearchForm filters) throws Throwable {
-        return service.fetchCount(filters);
+    public Mono<Page<Row>> fetchRows(String searchText, SearchForm filters, Pageable pageable) throws Throwable {
+        return service.fetchRows(searchText, filters, pageable);
     }
 
 }

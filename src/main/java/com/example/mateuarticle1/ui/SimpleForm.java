@@ -28,10 +28,9 @@ public class SimpleForm {
     public Message send() {
         // send the email
         return new Message(
-                UUID.randomUUID().toString(),
                 ResultType.Success,
                 "Message sent",
-                "Your message to " + email + " has been sent :)");
+                "Your message to " + email + " has been sent :)", 5000);
     }
 
 }
