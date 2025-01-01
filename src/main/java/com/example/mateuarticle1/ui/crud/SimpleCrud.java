@@ -1,19 +1,13 @@
 package com.example.mateuarticle1.ui.crud;
 
-import io.mateu.core.domain.uidefinition.core.interfaces.ConsumesContextData;
-import io.mateu.core.domain.uidefinition.core.interfaces.Crud;
-import io.mateu.core.domain.uidefinition.shared.annotations.Action;
-import io.mateu.core.domain.uidefinition.shared.annotations.MateuUI;
-import io.mateu.core.domain.uidefinition.shared.interfaces.JourneyStarter;
+import io.mateu.uidl.annotations.MateuUI;
+import io.mateu.uidl.interfaces.Crud;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
-
-import java.util.Map;
 
 @MateuUI("/crud")
 @Component@Scope("prototype")

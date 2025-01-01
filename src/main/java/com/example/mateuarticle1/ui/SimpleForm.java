@@ -1,10 +1,10 @@
 package com.example.mateuarticle1.ui;
 
-import io.mateu.core.domain.uidefinition.core.interfaces.Message;
-import io.mateu.core.domain.uidefinition.shared.annotations.MainAction;
-import io.mateu.core.domain.uidefinition.shared.annotations.MateuUI;
-import io.mateu.core.domain.uidefinition.shared.annotations.TextArea;
-import io.mateu.dtos.ResultType;
+import io.mateu.uidl.annotations.MainAction;
+import io.mateu.uidl.annotations.MateuUI;
+import io.mateu.uidl.annotations.TextArea;
+import io.mateu.uidl.data.ResultType;
+import io.mateu.uidl.interfaces.Message;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.annotation.Scope;
